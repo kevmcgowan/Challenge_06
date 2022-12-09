@@ -112,7 +112,6 @@ submitButton.addEventListener("click", sendToStorage);
 function sendToStorage(){
     var intls = document.querySelector('#initials');
     var value = intls.value;
-    var score = finalScore;
 
     var userData = [
         {
@@ -121,6 +120,5 @@ function sendToStorage(){
         }
     ];
 
-    var existingScores = localStorage.setItem("highScoresData", JSON.stringify(userData)) || '[]';
-    var getexistingScores = JSON.parse(localStorage.getItem("highScoresData"));
+localStorage.setItem("highScoresData", JSON.stringify(userData)) 
 }
