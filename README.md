@@ -33,7 +33,7 @@ SO THAT I can gauge my progress compared to my peers
 ![Click the correct answer.](/assets/images/FinalScore.png)
 
 ## Your High Score Leader Board. 
-![Your High Score Leader Board.](/assets/images/FinalScore.png)
+![Your High Score Leader Board.](/assets/images/HighScore.png)
 
 ## Review
 
