@@ -1,18 +1,18 @@
-// GLOBAL VARIABLES
-var button = document.getElementById('start');
-var questionsWrapper = document.getElementById('questions');
-var startScreen = document.getElementById('start-screen');
-var questionTitle = document.getElementById('question-title');
-var choicesOutput = document.getElementById('choices');
-var endScreen = document.getElementById('end-screen');
-var message = document.getElementById('message');
-var finalScore = document.getElementById('final-score');
-var enterInitials = document.getElementById('initials');
+// GLOBAL
+var button = document.querySelector('#start');
+var questionsWrapper = document.querySelector('#questions');
+var startScreen = document.querySelector('#start-screen');
+var questionTitle = document.querySelector('#question-title');
+var choicesOutput = document.querySelector('#choices');
+var endScreen = document.querySelector('#end-screen');
+var message = document.querySelector('#message');
+var finalScore = document.querySelector('#final-score');
+var enterInitials = document.querySelector('#initials');
 var currentQuestionIndex = 0;
 var time = 60; 
 var audioCorrect = new Audio("assets/sfx/correct.wav");
 var audioIncorrect = new Audio("assets/sfx/incorrect.wav");
-// var intervalHandler;
+var intervalHandler;
 
 // START BUTTON
 button.addEventListener('click', showQuizContent);
@@ -50,7 +50,7 @@ function showQuizContent (event){
 }
 
 
-//FUNCTION TO LOOP THROUGH QUIZ QUESTIONS
+//FUNCTION TO LOOP THROUGH QUESTIONS
 function showQuestionSet() {
         
     var currentQuestion = questionSet[currentQuestionIndex];
@@ -72,10 +72,10 @@ function showQuestionSet() {
     }
 }
 
-//ADD EVENT LISTENER TO CHOICES
+//ADD EVENT LISTENER TO CHOICES OUTPUT
 choicesOutput.addEventListener('click', checkAnswer);
 
-//FUNCTION TO CHECK ANSWER CORRECT OR FALSE
+//FUNCTION TO CHECK ANSWER CORRECT
 function checkAnswer(event){
     if (event.target.dataset.correct === "true"){
         audioCorrect.play();
@@ -88,7 +88,7 @@ function checkAnswer(event){
     }
 }
 
-//FUNTION TO INCREMENT QUESTION
+//FUNCTION TO DISPLAY NEXT QUESTION
 function nextQuestion() {  
     if (currentQuestionIndex < questionSet.length-1){
         currentQuestionIndex++;
@@ -105,13 +105,13 @@ function nextQuestion() {
 
 //PUT INITIALS AND SCORE INTO LOCAL STORAGE
 
-var submitButton = document.getElementById('submit');
+var submitButton = document.querySelector('#submit');
 
 submitButton.addEventListener("click", sendToStorage);
 
 function sendToStorage(){
-    var setInitials = document.getElementById('initials');
-    var value = setInitials.value;
+    var intls = document.querySelector('#initials');
+    var value = intls.value;
     var score = finalScore;
 
     var userData = [
