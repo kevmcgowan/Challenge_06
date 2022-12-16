@@ -9,16 +9,16 @@ var message = document.querySelector('#message');
 var finalScore = document.querySelector('#final-score');
 var enterInitials = document.querySelector('#initials');
 var currentQuestionIndex = 0;
-var time = 60; 
-var audioCorrect = new Audio("assets/sfx/correct.wav");
-var audioIncorrect = new Audio("assets/sfx/incorrect.wav");
+var time = 60;
+var audioCorrect = new Audio('assets/sfx/correct.wav');
+var audioIncorrect = new Audio('assets/sfx/incorrect.wav');
 var intervalHandler;
 
 // START BUTTON
 button.addEventListener('click', showQuizContent);
 
 // START TIMER AND SHOW QUESTIONS
-function showQuizContent (event){
+function showQuizContent(event) {
     questionsWrapper.style.display = 'block';
     startScreen.style.display = 'none';
 
@@ -26,33 +26,33 @@ function showQuizContent (event){
     var countdownEl = document.getElementById('time');
 
     // updateCountdown();
-    
+
     // intervalHandler = 
     setInterval(updateCountdown, 1000);
-    
-    function updateCountdown () {
+
+    function updateCountdown() {
         var minutes = Math.floor(time / 60);
         var seconds = time % 60;
-    
+
         countdownEl.innerHTML = `${seconds}`
-            
+
         if (time > 0) {
-        time--;
+            time--;
         }
-    
+
         if (time === 0) {
             questionsWrapper.style.display = 'none';
             endScreen.style.display = 'block';
         }
     }
-    
+
     showQuestionSet();
 }
 
 
 //FUNCTION TO LOOP THROUGH QUESTIONS
 function showQuestionSet() {
-        
+
     var currentQuestion = questionSet[currentQuestionIndex];
 
     questionTitle.innerText = '';
@@ -76,8 +76,8 @@ function showQuestionSet() {
 choicesOutput.addEventListener('click', checkAnswer);
 
 //FUNCTION TO CHECK ANSWER CORRECT
-function checkAnswer(event){
-    if (event.target.dataset.correct === "true"){
+function checkAnswer(event) {
+    if (event.target.dataset.correct === 'true') {
         audioCorrect.play();
         nextQuestion();
     }
@@ -89,8 +89,8 @@ function checkAnswer(event){
 }
 
 //FUNCTION TO DISPLAY NEXT QUESTION
-function nextQuestion() {  
-    if (currentQuestionIndex < questionSet.length-1){
+function nextQuestion() {
+    if (currentQuestionIndex < questionSet.length - 1) {
         currentQuestionIndex++;
         showQuestionSet();
     }
@@ -107,18 +107,18 @@ function nextQuestion() {
 
 var submitButton = document.querySelector('#submit');
 
-submitButton.addEventListener("click", sendToStorage);
+submitButton.addEventListener('click', sendTolocalStorage);
 
-function sendToStorage(){
+function sendTolocalStorage() {
     var intls = document.querySelector('#initials');
     var value = intls.value;
 
     var userData = [
         {
-        initials: value,
-        score: finalScore
+            initials: value,
+            score: finalScore
         }
     ];
 
-localStorage.setItem("highScoresData", JSON.stringify(userData)) 
+    localStorage.setItem('highScoresData', JSON.stringify(userData))
 }

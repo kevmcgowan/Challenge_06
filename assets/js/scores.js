@@ -1,17 +1,27 @@
-var getHighScores = localStorage.getItem("highScoresData") 
-|| '[]'; getHighScores = JSON.parse(getHighScores);
+var getHighScores = localStorage.getItem('highScoresData') || '[]';
+getHighScores = JSON.parse(getHighScores);
 
-document.querySelector("#highscores").innerHTML = `
+var getHighScores = JSON.parse(localstorage.getItem('highScoresData') || '[]');
+
+document.querySelector('#highscores').innerHTML = `
 <ol>
   <li>${getHighScores[0].initials} - ${getHighScores[0].score}</li>
 </ol>
 `;
 
-var clearBtn = document.querySelector("#clear");
+// $(document).ready(function(){
+//   $('#submit').click(function(){
+//     var getHighScores = $('span[id=final-score]').val;
+//     var init = $('input[id=initials]').val;
 
-clearBtn.addEventListener("click", clearScores);
+//     $('ol').append('<li>' + highScore + init + '</li>');})
+// })
+
+var clearBtn = document.querySelector('#clear');
+
+clearBtn.addEventListener('click', clearScores);
 
 function clearScores() {
-  document.querySelector("#highscores").innerHTML = "";
+  document.querySelector('#highscores').innerHTML = '';
   localStorage.clear();
 }
