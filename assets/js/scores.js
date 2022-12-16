@@ -1,7 +1,7 @@
 var getHighScores = localStorage.getItem('highScoresData') || '[]';
 getHighScores = JSON.parse(getHighScores);
 
-var getHighScores = JSON.parse(localstorage.getItem('highScoresData') || '[]');
+// var getHighScores = JSON.parse(localstorage.getItem('highScoresData') || '[]');
 
 document.querySelector('#highscores').innerHTML = `
 <ol>

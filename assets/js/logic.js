@@ -25,9 +25,7 @@ function showQuizContent(event) {
     // SET TIMER ON START BUTTON CLICK
     var countdownEl = document.getElementById('time');
 
-    // updateCountdown();
-
-    // intervalHandler = 
+    intervalHandler = 
     setInterval(updateCountdown, 1000);
 
     function updateCountdown() {
